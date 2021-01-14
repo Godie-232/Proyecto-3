@@ -72,13 +72,13 @@ class BD:
         """
         self.numero = num
         return ""
-    def correoOO (self, string1, string2, string3, num1, num2, num3):
+    def correoOO (self, lista):
         """
         Le da el atributo a los correos
         E: 3 string y 3 numeros
         S:
         """
-        self.correo = [(num1, string1), (num2,string2), (num3,string3)]
+        self.correo = lista
 def randomA ():
     """
     retorna el apellido completo de forma aleatoria
@@ -106,21 +106,75 @@ def validarCorreo(num, str1, str2):
     lista = ["", "", ""]
     correos = ["@gmail.com", "@hotmail.com", "@yahoo.com"]
     while i < num:
-        lista[i] = str1[0] + str2[:4] + correos[i]
+        lista[i] = (random.randint(1, 2),str1[0] + str2[:4] + correos[i])
         i += 1
-    if lista[2] == "":
-        return lista[:1]
-    elif lista[1] == "":
-        return lista[0]
-    else:
-        return lista
+    return lista
 def iniciarBD():
+    """
+    Guarda de forma aleatoria los datos del contacto
+    E:
+    S:
+    """
     global listaBD
+    clase = BD()
     name = names.get_first_name()
     apellido = randomA()
     tipo = random.randint(1,4)
     numero = int(validarNumero(tipo))
     correos = validarCorreo(random.randint(1, 3), name, apellido)
-    BD.nameOO(name)
-    BD.apellidosOO(apellido)
-    
+    clase.nameOO(name)
+    clase.apellidosOO(apellido)
+    clase.tipoOO(tipo)
+    clase.numeroOO(numero)    
+    clase.correoOO(correos)
+    listaBD += [[name, apellido, tipo, numero, correos]]
+    guardar("Contactos", listaBD)
+    return ""
+def llenarBD(num):
+    """
+    Dado un numero retorna la lista con la cantidad de contactos pedidos
+    E: un numero
+    S: una lista
+    """
+    global listaBD
+    i = 0
+    while i < num:
+        iniciarBD()
+        i += 1
+    return listaBD
+def validarLlenarBD(num):
+    """
+    Valida la funcion de llenarBD
+    E: un numero
+    S: una lista
+    """
+    if isinstance(num, int):
+        if num > 0:
+            if num < 500:
+                return llenarBD(num)
+            else:
+                print("Ingrese un numero menor que 500")
+                return ""
+        else:
+            print("Ingrese un numero mayor a 0")
+            return ""
+    else:
+        print("Ingrese un numero entero positivo")
+        return ""
+def insertarContacto(nombre, apellidos, tipo, numero, correo1, correo2, correo3, num1, num2, num3):
+    """
+    Dado unos valores crea los objetos y los añade a la lista global luego la guarda
+    E: 4 strings y 5 numeros
+    S: una lista
+    """
+    global listaBD
+    contactos = BD()
+    contactos.nameOO(nombre)
+    contactos.apellidosOO(apellidos)
+    contactos.tipoOO(tipo)
+    contactos.numeroOO(numero)
+    lista = [(num1, correo1), (num2, correo2), (num3, correo3)]
+    contactos.correoOO(lista)
+    listaBD += [[nombre, apellidos, tipo, numero, lista]]
+    guardar("Contactos", listaBD)
+    return listaBD
