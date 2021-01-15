@@ -11,7 +11,7 @@ import pickle
 import time 
 import xml.etree.ElementTree as xml
 #Creacion de funciones
-listaBD = [["Diego", "Vega Mora", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]], ["Luis", "Mendez Rojas", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]], ["Lorenzo", "Nicola Toruno", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]], ["Leonardo", "Villegas Bermudez", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]]]
+listaBD = []
 def guardar (archivo, lista):
     """
     guarda una lista en un archivo
