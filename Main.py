@@ -8,8 +8,10 @@ import names
 import random
 import requests
 import pickle
+import time 
+import xml.etree.ElementTree as xml
 #Creacion de funciones
-listaBD = []
+listaBD = [["Diego", "Vega Mora", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]], ["Luis", "Mendez Rojas", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]], ["Lorenzo", "Nicola Toruno", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]], ["Leonardo", "Villegas Bermudez", 1, 70061934, [(1, "Hola@yahoo.com"), (1,""), (2,"")]]]
 def guardar (archivo, lista):
     """
     guarda una lista en un archivo
@@ -178,3 +180,59 @@ def insertarContacto(nombre, apellidos, tipo, numero, correo1, correo2, correo3,
     listaBD += [[nombre, apellidos, tipo, numero, lista]]
     guardar("Contactos", listaBD)
     return listaBD
+def modificarContacto(nombre, apellidos, nombreN, apellidosN):
+    """
+    Dado el nombre de un contacto y su apellido los cambia por los nombre ingresados
+    E: 4 strings
+    S: una lista
+    """
+    global listaBD
+    for i in listaBD:
+        if nombre.upper() == i[0].upper() and apellidos.upper() == i[1].upper():
+            i[0] = nombreN
+            i[1] = apellidosN
+            return listaBD
+    print("El contacto no existe")
+    return ""
+def eliminarContacto(nombre, apellido):
+    """
+    Dado un nombre y un apellido elimina dicho contacto de la lista
+    E: 2 strings
+    S: una lista
+    """
+    global listaBD
+    listaN = []
+    for i in listaBD:
+        if i[0].upper() != nombre.upper() and i[1].upper() != apellido.upper():
+            listaN += [i]
+    return listaN
+def crearXML(lista):
+    root = xml.Element("Contactos")
+    for i in lista:
+        celda = xml.Element("Contactos")
+        root.append(celda)
+        name = xml.SubElement(celda, "Nombre")
+        name.text = i[0]
+        last = xml.SubElement(celda, "Apellidos")
+        last.text = i[1]
+        tipo = xml.SubElement(celda, "Tipo")
+        tipo.text = str(i[2])
+        number = xml.SubElement(celda, "Numero")
+        number.text = str(i[3])
+        tipoE1 = xml.SubElement(celda, "TipoCorreo")
+        tipoE1.text = str(i[4][0][0])
+        email1 = xml.SubElement(celda, "Correo")
+        email1.text = i[4][0][1]
+        tipoE1 = xml.SubElement(celda, "TipoCorreo")
+        tipoE1.text = str(i[4][1][0])
+        email2 = xml.SubElement(celda, "Correo")
+        email2.text = i[4][1][1]
+        tipoE1 = xml.SubElement(celda, "TipoCorreo")
+        tipoE1.text = str(i[4][2][0])
+        email3 = xml.SubElement(celda, "Correo")
+        email3.text = i[4][2][1]
+        tree = xml.ElementTree(root)
+        with open("Contactos.xml", "wb") as files:
+            tree.write(files)
+
+crearXML(listaBD)
