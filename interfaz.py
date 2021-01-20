@@ -12,3 +12,7 @@ ventana = Tk() # crea una ventana
 ventana.title("ventana principal")#titulo de la ventana
 ventana.geometry("900x800")#tamaño de la ventana
 ventana.resizable(True, True)#opcionde modifacar el tamaño
+
+
+#llamada a la ventana principal
+ventana.mainloop()
