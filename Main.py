@@ -6,11 +6,12 @@
 #Importacion de librerias
 import names 
 import random
-import requests
+from Frases import *
 import pickle
 import time 
 import xml.etree.ElementTree as xml
 #Creacion de funciones
+listaFrases = []
 listaBD = []
 def guardar (archivo, lista):
     """
@@ -207,6 +208,11 @@ def eliminarContacto(nombre, apellido):
             listaN += [i]
     return listaN
 def crearXML(lista):
+    """
+    Dado la lista con los contactos, crea un XML de ellos
+    E: una lista
+    S: 
+    """
     root = xml.Element("Contactos")
     for i in lista:
         celda = xml.Element("Contactos")
@@ -234,5 +240,62 @@ def crearXML(lista):
         tree = xml.ElementTree(root)
         with open("Contactos.xml", "wb") as files:
             tree.write(files)
-
-crearXML(listaBD)
+def extraerFrases():
+    """
+    toma la lista de frases y las agrega a una variable, luego se guarda en memoria
+    E:
+    S: 
+    """
+    global listaFrases
+    dFrases(listaFrases)
+    listaFrases = listaFrases[8:48]
+    print("Frases extraidas con exito")
+    guardar("Frases", listaFrases)
+    return ""
+def ulam(num, lista):
+    """
+    Dado un numero y una lista vacia, retorna la lista con la susecion de Ulam del numero
+    E: un numero y una lista
+    S: una lista
+    """
+    if num > 40:
+        num = 40
+    if num == 1:
+        return lista + [1] 
+    elif num %2 == 0:
+        return ulam (num//2, lista + [num])
+    else:
+        return ulam(num*3+1, lista + [num])
+def getUlam(num):
+    """
+    retorna la susecion de Ulam de un numero
+    E: un numero
+    S: una lista
+    """
+    if num > 0:
+        if num < 40:
+            return ulam(num, [])
+        else:
+            print("Ingrese un numero menor a 40")
+            return ""
+    else:
+        print("Ingrese un numero mayor a cero")
+        return ""
+def acercaDe():
+    """
+    Imprime la informacion acerca del programa, su version, cuando se creo y quienes lo crearon
+    """
+    print()
+    print()
+    print("Sistema: Python version 3.8.6          ")
+    print("Fecha de creacion: 18/1/2021          ")
+    print("Creado por: Esteban Sibaja y Diego Vega Mora          ")
+    print()
+    return ""
+def salir():
+    """
+    Termina el programa
+    """
+    print()
+    print("Gracias por usar nuestro servicio de mensajes Online")
+    return ""
