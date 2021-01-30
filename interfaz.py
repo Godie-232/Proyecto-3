@@ -21,6 +21,22 @@ labelTitulo.place(x=300,y=50)
 #TEXTOS(LABELS)
 labelNumero = Label(panel, text = "elige una opcion para llevar a cabo!", bg = 'snow', fg = 'gray10',font = ('',15))#otro label con texto de opciones
 labelNumero.place(x=250, y=100)
+#FUNCIONEZ BOTONES
+def boton1():
+    '''
+    funcion: llenar bd 
+    e:
+    s:
+    '''
+def boto11():
+    '''
+    funcion: cerrar la ventana principal
+    e:
+    s:
+    '''
+    ventana.destroy()
+    print('gracias por usar el sistema integratec!')
+    return ''
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = 'boton1').place(x=350,y=150)
 boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = 'boton2').place(x=350,y=200)
