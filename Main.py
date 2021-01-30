@@ -8,9 +8,10 @@ import names
 import random
 from Frases import *
 import pickle
-import time 
+import datetime 
 import xml.etree.ElementTree as xml
 #Creacion de funciones
+# -*- coding: utf-8 -*-
 listaFrases = []
 listaBD = []
 def guardar (archivo, lista):
@@ -292,10 +293,29 @@ def acercaDe():
     print("Creado por: Esteban Sibaja y Diego Vega Mora          ")
     print()
     return ""
-def salir():
+def sacarContactos(lista):
     """
-    Termina el programa
+    Dado una lista saca 2 personas diferentes
+    E: una lista
+    S: una lista
     """
-    print()
-    print("Gracias por usar nuestro servicio de mensajes Online")
+    listaF = [0, 0]
+    while listaF[0] == listaF[1]:
+        listaF = [lista[random.randint(0, len(lista)-1)][:2] , lista[random.randint(0, len(lista)-1)][:2]]
+    listaF = [listaF[0][0] + " " + listaF[0][1],listaF[1][0] + " " + listaF[1][1]]
+    return listaF
+def generarChat(listaObjetos, listaChat, ulam, num):
+    i = 1
+    while i < num + 1:
+        file = open("Chat " + str(i), "w")
+        k = 0
+        file.write(str(ulam) + "\n" + "Extraido de: https://amazonia-teamfactory.com/blog/las-50-mejores-frases-de-motivacion-en-el-trabajo/" + "\n")
+        for j in ulam:
+            file.write(str(datetime.datetime.today())[11:19] + "    " + "De: " + sacarContactos(listaObjetos)[k] + ": " + listaChat[j-1][4:] + "\n")
+            k += 1
+            if k > 1:
+                k = 0
+        i += 1
     return ""
+#print(sacarContactos(leer("Contactos")))
+generarChat(leer("Contactos"), leer("Frases"), getUlam(random.randint(0, 35)), 2)
