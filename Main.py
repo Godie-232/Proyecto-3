@@ -107,7 +107,7 @@ def validarCorreo(num, str1, str2):
     S: una lista
     """
     i = 0
-    lista = ["", "", ""]
+    lista = [("", ""), ("", ""), ("", "")]
     correos = ["@gmail.com", "@hotmail.com", "@yahoo.com"]
     while i < num:
         lista[i] = (random.randint(1, 2),str1[0] + str2[:4] + correos[i])
@@ -216,6 +216,7 @@ def crearXML(lista):
     """
     root = xml.Element("Contactos")
     for i in lista:
+        print(i)
         celda = xml.Element("Contactos")
         root.append(celda)
         name = xml.SubElement(celda, "Nombre")
@@ -305,17 +306,22 @@ def sacarContactos(lista):
     listaF = [listaF[0][0] + " " + listaF[0][1],listaF[1][0] + " " + listaF[1][1]]
     return listaF
 def generarChat(listaObjetos, listaChat, ulam, num):
+    """
+    crea archivos con los chats 
+    E: 3 listas y un numero
+    S: 
+    """
     i = 1
     while i < num + 1:
-        file = open("Chat " + str(i), "w")
+        file = open("Chat " + str(i) + '.txt', "w")
         k = 0
+        contactos = sacarContactos(listaObjetos)
+        ulam = getUlam(random.randint(0, 34))
         file.write(str(ulam) + "\n" + "Extraido de: https://amazonia-teamfactory.com/blog/las-50-mejores-frases-de-motivacion-en-el-trabajo/" + "\n")
         for j in ulam:
-            file.write(str(datetime.datetime.today())[11:19] + "    " + "De: " + sacarContactos(listaObjetos)[k] + ": " + listaChat[j-1][4:] + "\n")
+            file.write(str(datetime.datetime.today())[11:19] + "    " + "De: " + contactos[k] + ": " + listaChat[j-1][4:] + "\n")
             k += 1
             if k > 1:
                 k = 0
         i += 1
     return ""
-#print(sacarContactos(leer("Contactos")))
-generarChat(leer("Contactos"), leer("Frases"), getUlam(random.randint(0, 35)), 2)
