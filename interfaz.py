@@ -28,14 +28,14 @@ def boton1():
     e:
     s:
     '''
-def boto11():
+def boton11():
     '''
     funcion: cerrar la ventana principal
     e:
     s:
     '''
     ventana.destroy()
-    print('gracias por usar el sistema integratec!')
+    print('Gracias por usar el sistema de Chat!')
     return ''
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = 'boton1').place(x=350,y=150)
