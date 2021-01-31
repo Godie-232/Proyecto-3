@@ -47,7 +47,7 @@ def boto11():
     s:
     '''
     ventana.destroy()
-    print('gracias por usar el sistema integratec!')
+    print('Gracias por usar el sistema de Chat!')
     return ''
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = boton1).place(x=350,y=150)

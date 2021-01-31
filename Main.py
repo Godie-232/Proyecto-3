@@ -8,9 +8,10 @@ import names
 import random
 from Frases import *
 import pickle
-import time 
+import datetime 
 import xml.etree.ElementTree as xml
 #Creacion de funciones
+# -*- coding: utf-8 -*-
 listaFrases = []
 listaBD = []
 def guardar (archivo, lista):
@@ -106,7 +107,7 @@ def validarCorreo(num, str1, str2):
     S: una lista
     """
     i = 0
-    lista = ["", "", ""]
+    lista = [("", ""), ("", ""), ("", "")]
     correos = ["@gmail.com", "@hotmail.com", "@yahoo.com"]
     while i < num:
         lista[i] = (random.randint(1, 2),str1[0] + str2[:4] + correos[i])
@@ -215,6 +216,7 @@ def crearXML(lista):
     """
     root = xml.Element("Contactos")
     for i in lista:
+        print(i)
         celda = xml.Element("Contactos")
         root.append(celda)
         name = xml.SubElement(celda, "Nombre")
@@ -292,10 +294,34 @@ def acercaDe():
     print("Creado por: Esteban Sibaja y Diego Vega Mora          ")
     print()
     return ""
-def salir():
+def sacarContactos(lista):
     """
-    Termina el programa
+    Dado una lista saca 2 personas diferentes
+    E: una lista
+    S: una lista
     """
-    print()
-    print("Gracias por usar nuestro servicio de mensajes Online")
+    listaF = [0, 0]
+    while listaF[0] == listaF[1]:
+        listaF = [lista[random.randint(0, len(lista)-1)][:2] , lista[random.randint(0, len(lista)-1)][:2]]
+    listaF = [listaF[0][0] + " " + listaF[0][1],listaF[1][0] + " " + listaF[1][1]]
+    return listaF
+def generarChat(listaObjetos, listaChat, ulam, num):
+    """
+    crea archivos con los chats 
+    E: 3 listas y un numero
+    S: 
+    """
+    i = 1
+    while i < num + 1:
+        file = open("Chat " + str(i) + '.txt', "w")
+        k = 0
+        contactos = sacarContactos(listaObjetos)
+        ulam = getUlam(random.randint(0, 34))
+        file.write(str(ulam) + "\n" + "Extraido de: https://amazonia-teamfactory.com/blog/las-50-mejores-frases-de-motivacion-en-el-trabajo/" + "\n")
+        for j in ulam:
+            file.write(str(datetime.datetime.today())[11:19] + "    " + "De: " + contactos[k] + ": " + listaChat[j-1][4:] + "\n")
+            k += 1
+            if k > 1:
+                k = 0
+        i += 1
     return ""
