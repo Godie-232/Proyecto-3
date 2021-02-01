@@ -193,6 +193,7 @@ def modificarContacto(nombre, apellidos, nombreN, apellidosN):
         if nombre.upper() == i[0].upper() and apellidos.upper() == i[1].upper():
             i[0] = nombreN
             i[1] = apellidosN
+            guardar("Contactos", listaBD)
             return listaBD
     print("El contacto no existe")
     return ""
@@ -207,6 +208,8 @@ def eliminarContacto(nombre, apellido):
     for i in listaBD:
         if i[0].upper() != nombre.upper() and i[1].upper() != apellido.upper():
             listaN += [i]
+    listaBD = listaN
+    guardar("Contactos", listaBD)
     return listaN
 def crearXML(lista):
     """
@@ -385,4 +388,26 @@ def frasesLarga(lista):
         if len(i[4:]) > mayor[0]:
             mayor = [len(i[4:]), i[4:]]
     return mayor[1]
-print(frasesLarga(leer("Frases")))
+def fraseCorta(lista):
+    """
+    De la lista de frases extrae la frase mas corta
+    E: una lista
+    S: un str
+    """
+    menor = [10000, ""]
+    for i in lista:
+        if len(i[4:]) < menor[0]:
+            menor = [len(i[4:]), i[4:]]
+    return menor[1]
+def reporte4(lista):
+    """
+    Crea un reporte con la frase mas larga y la mas corta
+    E: 1 lista1
+    S:
+    """
+    larga = frasesLarga(lista)
+    corta = fraseCorta(lista)
+    file = open("Reporte de Frases.csv", "w")
+    file.write("Frase mas larga ? Frase mas corta \n")
+    file.write(larga + " " + " ? " + corta + "\n")
+    return ""
