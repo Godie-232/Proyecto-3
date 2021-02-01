@@ -325,9 +325,64 @@ def generarChat(listaObjetos, listaChat, ulam, num):
                 k = 0
         i += 1
     return ""
-#def reporte1 (lista):
+def reporte1 (lista):
+    """
+    Dada la lista de contactos, la convierte y acomoda a excel
+    E: una lista
+    S:
+    """
+    file = open("Reporte de Contactos.csv", "w")
+    file.write("Nombre, Apellidos, Telefono, Email 1, Email 2, Email 3 \n")
+    for i in lista:
+        file.write(i[0] + " " + " , " + i[1] + " " + " , " + str(i[3]) + " " + " , " + i[4][0][1] + " " + " , " + i[4][1][1] + " " + " , " + i[4][2][1] + "\n")
+    return ""
+def sacarCelu(lista):
+    listaN = []
+    for i in lista:
+        if i[2] == 1:
+            listaN += [i]
+    return listaN
+        
+def reporte2(lista):
+    """
+    Dada la lista de contactos, la convierte y acomoda a excel
+    E: una lista
+    S:
+    """
+    lista = sacarCelu(lista)
+    file = open("Reporte de Contactos Celular.csv", "w")
+    file.write("Nombre, Apellidos, Telefono, Email 1, Email 2, Email 3 \n")
+    for i in lista:
+        file.write(i[0] + " " + " , " + i[1] + " " + " , " + str(i[3]) + " " + " , " + i[4][0][1] + " " + " , " + i[4][1][1] + " " + " , " + i[4][2][1] + "\n")
+    return ""
+def mayorCorreos(lista):
+    listaN = []
+    for i in lista:
+        if i[4][0][1] != "" and i[4][1][1] != "" and i[4][2][1] != "":
+            listaN += [i]
+    return listaN
 
-
-
-
-print(leer("Contactos"))
+def reporte3(lista):
+    """
+    Dada la lista de contactos, la convierte y acomoda a excel
+    E: una lista
+    S:
+    """
+    lista = mayorCorreos(lista)
+    file = open("Reporte de Mayores Correos.csv", "w")
+    file.write("Nombre, Apellidos, Telefono, Email 1, Email 2, Email 3 \n")
+    for i in lista:
+        file.write(i[0] + " " + " , " + i[1] + " " + " , " + str(i[3]) + " " + " , " + i[4][0][1] + " " + " , " + i[4][1][1] + " " + " , " + i[4][2][1] + "\n")
+    return ""
+def frasesLarga(lista):
+    """
+    De la lista de frases extrae la frase mas larga
+    E: una lista
+    S: un str
+    """
+    mayor = [0, ""]
+    for i in lista:
+        if len(i[4:]) > mayor[0]:
+            mayor = [len(i[4:]), i[4:]]
+    return mayor[1]
+print(frasesLarga(leer("Frases")))
