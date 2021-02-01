@@ -74,17 +74,38 @@ def boton2():
     cajaNumero.place(x=80,y=400)
     inputCajaNumero = Entry(panel2)#cuadro de texto donde se se escribe
     inputCajaNumero.place(x = 300, y =400)
-    cajaTipoCorreo = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
-    cajaTipoCorreo.place(x=80,y=450)
-    inputTipoCorreo = Entry(panel2)
-    inputTipoCorreo.place(x=300,y=475)
-    cajaCorreo = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
-    cajaCorreo.place(x=80,y=500)
-    inputCorreo = Entry(panel2)
-    inputCorreo.place(x=300,y=500)
-    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda: 'ad')
-    botonRegistrar.place(x=80,y=550)
+    #correo 1
+    cajaTipoCorreo1 = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
+    cajaTipoCorreo1.place(x=80,y=450)
+    inputTipoCorreo1 = Entry(panel2)
+    inputTipoCorreo1.place(x=300,y=475)
+    cajaCorreo1 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+    cajaCorreo1.place(x=80,y=500)
+    inputCorreo1 = Entry(panel2)
+    inputCorreo1.place(x=300,y=500)
+    #correo 2
+    cajaTipoCorreo2 = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
+    cajaTipoCorreo2.place(x=80,y=450)
+    inputTipoCorreo2 = Entry(panel2)
+    inputTipoCorreo2.place(x=300,y=475)
+    cajaCorreo2 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+    cajaCorreo2.place(x=80,y=500)
+    inputCorreo2 = Entry(panel2)
+    inputCorreo2.place(x=300,y=500)
+    #correo 3
+    cajaTipoCorreo3 = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
+    cajaTipoCorreo3.place(x=80,y=450)
+    inputTipoCorreo3 = Entry(panel2)
+    inputTipoCorreo3.place(x=300,y=475)
+    cajaCorreo3 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+    cajaCorreo3.place(x=80,y=500)
+    inputCorreo3 = Entry(panel2)
+    inputCorreo3.place(x=300,y=500)
+    #botones registro y limpieza
+    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda:insertarContacto(inputCajaNombre,inputCajaApellidos,inputTipoNumero.get(),inputCajaNumero.get()))
+    botonRegistrar.place(x=80,y=800)
     botonLimpiar = Button(panel2,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
+    botonLimpiar.place(x=80,y=850)
 def boto11():
     '''
     funcion: cerrar la ventana principal
