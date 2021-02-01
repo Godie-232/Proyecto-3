@@ -56,56 +56,57 @@ def boton2():
     ventana2.resizable(True, True)#opcionde modifacar el tamaño
     panel2 = Frame(ventana2, bg='RoyalBlue3', width = 900, height = 800)
     panel2.place(x=0, y=0)
-    labelTitulo2 = Label(panel2, text = "crear un contacto!", bg ='snow', fg = 'gray10',font = ('',20))
+    labelTitulo2 = Label(panel2, text = "crear un contacto!", bg ='snow', fg = 'gray10',font = ('',15))
     labelTitulo2.place(x=150,y=50)
-    cajaNombre = Label(panel2, text = 'Nombre:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
-    cajaNombre.place(x=80,y=150)
+    cajaNombre = Label(panel2, text = 'Nombre:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaNombre.place(x=80,y=100)
     inputCajaNombre = Entry(panel2)#cuadro de texto donde se se escribe
-    inputCajaNombre.place(x = 300, y =150)
-    cajaApellidos = Label(panel2, text = 'Apellidos:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
-    cajaApellidos.place(x=80,y=200)
+    inputCajaNombre.place(x = 250, y =100)
+    cajaApellidos = Label(panel2, text = 'Apellidos:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaApellidos.place(x=80,y=125)
     inputCajaApellidos = Entry(panel2)#cuadro de texto donde se se escribe
-    inputCajaApellidos.place(x = 300, y =200)
+    inputCajaApellidos.place(x = 250, y =125)
     cajaTipoNumero = Label(panel2,text ='1.celular\n2.laboral\n3.particular\n4.fax\ntipo de numero:', bg = 'snow', fg = 'gray10', font = ('',11))
-    cajaTipoNumero.place(x=80,y=250)
+    cajaTipoNumero.place(x=80,y=150)
     inputTipoNumero = Entry(panel2)
-    inputTipoNumero.place(x = 300, y =275)
-    cajaNumero = Label(panel2, text = 'inserte el numero:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
-    cajaNumero.place(x=80,y=400)
+    inputTipoNumero.place(x = 250, y =200)
+    cajaNumero = Label(panel2, text = 'inserte el numero:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaNumero.place(x=80,y=250)
     inputCajaNumero = Entry(panel2)#cuadro de texto donde se se escribe
-    inputCajaNumero.place(x = 300, y =400)
+    inputCajaNumero.place(x = 250, y =250)
     #correo 1
     cajaTipoCorreo1 = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
-    cajaTipoCorreo1.place(x=80,y=450)
+    cajaTipoCorreo1.place(x=80,y=300)
     inputTipoCorreo1 = Entry(panel2)
-    inputTipoCorreo1.place(x=300,y=475)
-    cajaCorreo1 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
-    cajaCorreo1.place(x=80,y=500)
+    inputTipoCorreo1.place(x=250,y=325)
+    cajaCorreo1 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',12))
+    cajaCorreo1.place(x=80,y=375)
     inputCorreo1 = Entry(panel2)
-    inputCorreo1.place(x=300,y=500)
+    inputCorreo1.place(x=250,y=375)
     #correo 2
     cajaTipoCorreo2 = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
-    cajaTipoCorreo2.place(x=80,y=450)
+    cajaTipoCorreo2.place(x=80,y=425)
     inputTipoCorreo2 = Entry(panel2)
-    inputTipoCorreo2.place(x=300,y=475)
-    cajaCorreo2 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+    inputTipoCorreo2.place(x=250,y=425)
+    cajaCorreo2 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',12))
     cajaCorreo2.place(x=80,y=500)
     inputCorreo2 = Entry(panel2)
-    inputCorreo2.place(x=300,y=500)
+    inputCorreo2.place(x=250,y=500)
     #correo 3
     cajaTipoCorreo3 = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
-    cajaTipoCorreo3.place(x=80,y=450)
+    cajaTipoCorreo3.place(x=80,y=550)
     inputTipoCorreo3 = Entry(panel2)
-    inputTipoCorreo3.place(x=300,y=475)
-    cajaCorreo3 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
-    cajaCorreo3.place(x=80,y=500)
+    inputTipoCorreo3.place(x=250,y=550)
+    cajaCorreo3 = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',12))
+    cajaCorreo3.place(x=80,y=625)
     inputCorreo3 = Entry(panel2)
-    inputCorreo3.place(x=300,y=500)
+    inputCorreo3.place(x=250,y=625)
     #botones registro y limpieza
-    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda:insertarContacto(inputCajaNombre,inputCajaApellidos,inputTipoNumero.get(),inputCajaNumero.get()))
-    botonRegistrar.place(x=80,y=800)
+    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda:insertarContacto(inputCajaNombre,inputCajaApellidos,inputTipoNumero.get(),inputCajaNumero.get(),inputTipoCorreo1.get(),inputCorreo1,inputTipoCorreo2.get(),inputCorreo2,inputTipoCorreo3.get(),inputCorreo3))
+    botonRegistrar.place(x=80,y=670)
     botonLimpiar = Button(panel2,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
-    botonLimpiar.place(x=80,y=850)
+    botonLimpiar.place(x=300,y=670)
+
 def boto11():
     '''
     funcion: cerrar la ventana principal
