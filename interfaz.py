@@ -158,6 +158,79 @@ def boton3():
     botonBuscar.place(x=100,y=200)
     botonLimpiar = Button(panel3,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=300,y=200)
+def boton4():
+    '''
+    funcion: exportar a xml
+    e:
+    s:
+    '''
+    '###########FUNCION BD A XML##############'
+def boton5():
+    '''
+    funcion: extraer las frases celebres
+    e:
+    s:
+    '''
+    '########FUNCION FRASES CELEBRES######'
+def boton6():
+    '''
+    funcion: chatear
+    e:
+    s:
+    '''
+    ventana6 = Tk()# crea una ventana
+    ventana6.title('ventana reto 7')
+    ventana6.geometry("900x800")#tamaño de la ventana
+    ventana6.resizable(True, True)#opcionde modifacar el tamaño
+    panel6 = Frame(ventana6, bg='RoyalBlue3', width = 900, height = 800)
+    panel6.place(x=0, y=0)
+    labelTitulo6 = Label(panel6, text = "Chatear!", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo6.place(x=150,y=50)
+    #cantidad de chats
+    cajaCantidadChats = Label(panel6, text = 'cantidad de contactos:', bg = 'snow', fg = 'gray10', font = ('',12))
+    cajaCantidadChats.place(x=80,y=150)
+    inputCantidadChats = Entry(panel6)
+    inputCantidadChats.place(x = 250, y =150)
+    #botones
+    botonChatear = Button(panel6,text = 'Chatear',width=30, height = 2, command = lambda: 'FUNCION CHATEAR')
+    botonChatear.place(x=100,y=200)
+    botonLimpiar = Button(panel6,text = 'Limpiar',width=30, height = 2, command = lambda: 'FUNCION LIMPIAR')
+    botonLimpiar.place(x=320,y=200)
+def boton7():
+    '''
+    funcion: generar los reportes
+    e:
+    s:
+    '''
+    'FUNCION REPORTES'
+def boton8():
+    '''
+    funcion: ayuda, abre el manual de usuario
+    e:
+    s:
+    '''
+    ventana8 = Tk()# crea una ventana
+    ventana8.title('ventana reto 8')
+    ventana8.geometry("900x800")#tamaño de la ventana
+    ventana8.resizable(True, True)#opcionde modifacar el tamaño
+    panel8 = Frame(ventana8, bg='RoyalBlue3', width = 900, height = 800)
+    panel8.place(x=0, y=0)
+    labelTitulo8 = Label(panel8, text = "Manual de usuario", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo8.place(x=150,y=50)
+def boton9():
+    '''
+    funcion: mostrar acerda de
+    e:
+    s:
+    '''
+    ventana9 = Tk()# crea una ventana
+    ventana9.title('ventana reto 7')
+    ventana9.geometry("900x800")#tamaño de la ventana
+    ventana9.resizable(True, True)#opcionde modifacar el tamaño
+    panel9 = Frame(ventana9, bg='RoyalBlue3', width = 900, height = 800)
+    panel9.place(x=0, y=0)
+    labelTitulo9 = Label(panel9, text = 'Acerca de', bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo9.place(x=150,y=50)
 def boto10():
     '''
     funcion: cerrar la ventana principal
@@ -171,10 +244,10 @@ def boto10():
 boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = boton1).place(x=350,y=150)
 boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = boton2).place(x=350,y=200)
 boton3 = Button(panel,text = '3)Modificar/eliminar contactos',width=30, height = 2,command = boton3).place(x=350,y=250)
-boton4 = Button(panel,text = '4)Exportar BD a XML',width=30, height = 2,command = 'boton4').place(x=350,y=300)
-boton5 = Button(panel,text = '5)Extraer frases celebres',width=30, height = 2,command = 'boton5').place(x=350,y=350)
-boton6 = Button(panel,text = '6)Chatear',width=30, height = 2,command = 'boton6').place(x=350,y=400)
-boton7 = Button(panel,text = '7)reportes',width=30, height = 2, command = 'boton7').place(x=350,y=450)
+boton4 = Button(panel,text = '4)Exportar BD a XML',width=30, height = 2,command = boton4).place(x=350,y=300)
+boton5 = Button(panel,text = '5)Extraer frases celebres',width=30, height = 2,command = boton5).place(x=350,y=350)
+boton6 = Button(panel,text = '6)Chatear',width=30, height = 2,command = boton6).place(x=350,y=400)
+boton7 = Button(panel,text = '7)reportes',width=30, height = 2, command = boton7).place(x=350,y=450)
 boton8 = Button(panel,text = '8)Ayuda',width=30, height = 2,command = 'boton8').place(x=350,y=500)
 boton9 = Button(panel,text = '9)Acerca de',width=30, height = 2,command = 'boton9').place(x=350,y=550)
 boton10 = Button(panel,text = '10)Salir',width=30, height = 2,command = 'boton10').place(x=350,y=600)
