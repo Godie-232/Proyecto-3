@@ -24,11 +24,47 @@ labelNumero.place(x=250, y=100)
 #FUNCIONEZ BOTONES
 def boton1():
     '''
-    funcion: llenar bd 
+    funcion: llenar BD
     e:
     s:
     '''
-def boton11():
+    ventana1 = Tk() # crea una ventana
+    ventana1.title("ventana reto 1")#titulo de la ventana
+    ventana1.geometry("900x800")#tamaño de la ventana
+    ventana1.resizable(True, True)#opcionde modifacar el tamaño
+    panel1 = Frame(ventana1, bg='RoyalBlue3', width = 900, height = 800)
+    panel1.place(x=0, y=0)
+    labelTitulo1 = Label(panel1, text = "crear contactos!", bg ='snow', fg = 'gray10',font = ('',20))
+    labelTitulo1.place(x=150,y=50)
+    caja1 = Label(panel1, text = 'cantidad de contactos:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
+    caja1.place(x=80,y=150)
+    inputCaja1 = Entry(panel1)#cuadro de texto donde se se escribe
+    inputCaja1.place(x = 300, y =150)
+    botonCrear = Button(panel1,text = 'Crear contactos',width=30, height = 2, command = 'FUNCION CREAR CONTACTOS').place(x=80,y=200)#crea los contactos
+    botonLimpiar = Button(panel1,text = 'limpiar',width=30, height = 2, command = 'FUNCION LIMPIAR CONTACTOS').place(x=80,y=300)#limpia*?
+def boton2():
+    '''
+    funcion: insertar un contacto
+    e:
+    s:
+    '''
+    ventana2 = Tk()# crea una ventana
+    ventana2.title('ventana reto 2')
+    ventana2.geometry("900x800")#tamaño de la ventana
+    ventana2.resizable(True, True)#opcionde modifacar el tamaño
+    panel2 = Frame(ventana2, bg='RoyalBlue3', width = 900, height = 800)
+    panel2.place(x=0, y=0)
+    labelTitulo2 = Label(panel2, text = "crear un contacto!", bg ='snow', fg = 'gray10',font = ('',20))
+    labelTitulo2.place(x=150,y=50)
+    cajaNombre = Label(panel2, text = 'Nombre', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
+    cajaNombre.place(x=80,y=150)
+    inputCajaNombre = Entry(panel2)#cuadro de texto donde se se escribe
+    inputCajaNombre.place(x = 300, y =150)
+    cajaApellidos = Label(panel2, text = 'Nombre', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
+    cajaApellidos.place(x=80,y=150)
+    inputCajaApellidos = Entry(panel2)#cuadro de texto donde se se escribe
+    inputCajaApellidos.place(x = 300, y =150)
+def boto11():
     '''
     funcion: cerrar la ventana principal
     e:
@@ -38,7 +74,7 @@ def boton11():
     print('Gracias por usar el sistema de Chat!')
     return ''
 #BOTONES DEL MENU PRINCIPAL
-boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = 'boton1').place(x=350,y=150)
+boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = boton1).place(x=350,y=150)
 boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = 'boton2').place(x=350,y=200)
 boton3 = Button(panel,text = '3)Modificar contactos',width=30, height = 2,command = 'boton3').place(x=350,y=250)
 boton4 = Button(panel,text = '4)Eliminiar contacto',width=30, height = 2,command = 'boton4').place(x=350,y=300)
