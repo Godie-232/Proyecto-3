@@ -325,3 +325,9 @@ def generarChat(listaObjetos, listaChat, ulam, num):
                 k = 0
         i += 1
     return ""
+#def reporte1 (lista):
+
+
+
+
+print(leer("Contactos"))
