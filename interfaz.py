@@ -7,6 +7,7 @@ import tkinter
 from tkinter import *
 import pip
 from pip import *
+from Main import *
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
 ventana.title("ventana principal")#titulo de la ventana
@@ -40,7 +41,8 @@ def boton1():
     caja1.place(x=80,y=150)
     inputCaja1 = Entry(panel1)#cuadro de texto donde se se escribe
     inputCaja1.place(x = 300, y =150)
-    botonCrear = Button(panel1,text = 'Crear contactos',width=30, height = 2, command = 'FUNCION CREAR CONTACTOS').place(x=80,y=200)#crea los contactos
+    botonCrear = Button(panel1,text = 'Crear contactos',width=30, height = 2, command = lambda: validarLlenarBD(inputCaja1.get()))#crea los contactos
+    botonCrear.place(x=80,y=200)
     botonLimpiar = Button(panel1,text = 'limpiar',width=30, height = 2, command = 'FUNCION LIMPIAR CONTACTOS').place(x=80,y=300)#limpia*?
 def boton2():
     '''
@@ -56,14 +58,33 @@ def boton2():
     panel2.place(x=0, y=0)
     labelTitulo2 = Label(panel2, text = "crear un contacto!", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo2.place(x=150,y=50)
-    cajaNombre = Label(panel2, text = 'Nombre', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
+    cajaNombre = Label(panel2, text = 'Nombre:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
     cajaNombre.place(x=80,y=150)
     inputCajaNombre = Entry(panel2)#cuadro de texto donde se se escribe
     inputCajaNombre.place(x = 300, y =150)
-    cajaApellidos = Label(panel2, text = 'Nombre', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
-    cajaApellidos.place(x=80,y=150)
+    cajaApellidos = Label(panel2, text = 'Apellidos:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
+    cajaApellidos.place(x=80,y=200)
     inputCajaApellidos = Entry(panel2)#cuadro de texto donde se se escribe
-    inputCajaApellidos.place(x = 300, y =150)
+    inputCajaApellidos.place(x = 300, y =200)
+    cajaTipoNumero = Label(panel2,text ='1.celular\n2.laboral\n3.particular\n4.fax\ntipo de numero:', bg = 'snow', fg = 'gray10', font = ('',11))
+    cajaTipoNumero.place(x=80,y=250)
+    inputTipoNumero = Entry(panel2)
+    inputTipoNumero.place(x = 300, y =275)
+    cajaNumero = Label(panel2, text = 'inserte el numero:', bg = 'snow', fg = 'gray10', font = ('',15))#caja de informacion
+    cajaNumero.place(x=80,y=400)
+    inputCajaNumero = Entry(panel2)#cuadro de texto donde se se escribe
+    inputCajaNumero.place(x = 300, y =400)
+    cajaTipoCorreo = Label(panel2,text ='1.particular\n2.laboral\ntipo de correo:', bg = 'snow', fg = 'gray10', font = ('',11))
+    cajaTipoCorreo.place(x=80,y=450)
+    inputTipoCorreo = Entry(panel2)
+    inputTipoCorreo.place(x=300,y=475)
+    cajaCorreo = Label(panel2, text = 'inserte el correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+    cajaCorreo.place(x=80,y=500)
+    inputCorreo = Entry(panel2)
+    inputCorreo.place(x=300,y=500)
+    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda: 'ad')
+    botonRegistrar.place(x=80,y=550)
+    botonLimpiar = Button(panel2,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
 def boto11():
     '''
     funcion: cerrar la ventana principal
@@ -75,7 +96,7 @@ def boto11():
     return ''
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = boton1).place(x=350,y=150)
-boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = 'boton2').place(x=350,y=200)
+boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = boton2).place(x=350,y=200)
 boton3 = Button(panel,text = '3)Modificar contactos',width=30, height = 2,command = 'boton3').place(x=350,y=250)
 boton4 = Button(panel,text = '4)Eliminiar contacto',width=30, height = 2,command = 'boton4').place(x=350,y=300)
 boton5 = Button(panel,text = '5)Exportar BD a XML',width=30, height = 2,command = 'boton5').place(x=350,y=350)
