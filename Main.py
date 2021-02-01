@@ -165,7 +165,7 @@ def validarLlenarBD(num):
     else:
         print("Ingrese un numero entero positivo")
         return ""
-def insertarContacto(nombre, apellidos, tipo, numero, correo1, correo2, correo3, num1, num2, num3):
+def insertarContacto(nombre,apellidos,tipo,numero,num1,correo1,num2,num3,correo2,correo3):
     """
     Dado unos valores crea los objetos y los añade a la lista global luego la guarda
     E: 4 strings y 5 numeros
