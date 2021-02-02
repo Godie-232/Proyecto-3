@@ -103,7 +103,7 @@ def boton2():
     inputCorreo3 = Entry(panel2)
     inputCorreo3.place(x=250,y=625)
     #botones registro y limpieza
-    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda:insertarContacto(inputCajaNombre,inputCajaApellidos,inputTipoNumero.get(),inputCajaNumero.get(),inputTipoCorreo1.get(),inputCorreo1,inputTipoCorreo2.get(),inputCorreo2,inputTipoCorreo3.get(),inputCorreo3))
+    botonRegistrar = Button(panel2,text = 'Registrar',width=30, height = 2, command = lambda:insertarContacto(inputCajaNombre.get(),inputCajaApellidos.get(),inputTipoNumero.get(),inputCajaNumero.get(),inputTipoCorreo1.get(),inputCorreo1.get(),inputTipoCorreo2.get(),inputCorreo2.get(),inputTipoCorreo3.get(),inputCorreo3.get(), leer("Contactos")))
     botonRegistrar.place(x=80,y=670)
     botonLimpiar = Button(panel2,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=300,y=670)
@@ -139,7 +139,7 @@ def boton3():
     cajaApellidosNew.place(x=80,y=175)
     inputCajaApellidosNew = Entry(panel3)#cuadro de texto donde se se escribe
     inputCajaApellidosNew.place(x = 250, y =175)
-    botonModificar = Button(panel3,text = 'modificar',width=30, height = 2, command = lambda: modificarContacto(inputCajaNombre,inputCajaApellidos,inputCajaNombreNew,inputCajaApellidosNew,leer('Contactos')))
+    botonModificar = Button(panel3,text = 'modificar',width=30, height = 2, command = lambda: modificarContacto(inputCajaNombre.get(),inputCajaApellidos.get(),inputCajaNombreNew.get(),inputCajaApellidosNew.get(),leer('Contactos')))
     botonModificar.place(x=100,y=220)
     botonLimpiar = Button(panel3,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=320,y=220)
@@ -165,7 +165,7 @@ def boton4():
     cajaApellidos.place(x=80,y=125)
     inputCajaApellidos = Entry(panel4)#cuadro de texto donde se se escribe
     inputCajaApellidos.place(x = 250, y =125)
-    botonEliminar = Button(panel4,text = 'Eliminar',width=30, height = 2, command = lambda: eliminarContacto(inputCajaNombre,inputCajaApellidos))
+    botonEliminar = Button(panel4,text = 'Eliminar',width=30, height = 2, command = lambda: eliminarContacto(inputCajaNombre.get(),inputCajaApellidos.get()))
     botonEliminar.place(x=300,y=200)
 def boton5():
     '''

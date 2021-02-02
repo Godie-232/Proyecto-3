@@ -188,14 +188,11 @@ def modificarContacto(nombre, apellidos, nombreN, apellidosN, lista):
     """
     global listaBD
     for i in lista:
-<<<<<<< HEAD
         if str(nombre).upper() == i[0].upper() and str(apellidos).upper() == i[1].upper():
-=======
-        if str(nombre) == i[0] and str(apellidos) == i[1]:
->>>>>>> 29cb996edd4044bdfaa6e4dba0776683dc1cdce5
             i[0] = nombreN
             i[1] = apellidosN
             guardar("Contactos", lista)
+            print("Contacto modificado exitosamente")
             return lista
     print("El contacto no existe")
     return ""
@@ -207,7 +204,7 @@ def eliminarContacto(nombre, apellido, lista):
     """
     listaN = []
     for i in lista:
-        if i[0].upper() != nombre.upper() and i[1].upper() != apellido.upper():
+        if i[0].upper() != str(nombre).upper() and i[1].upper() != str(apellido).upper():
             listaN += [i]
     lista = listaN
     guardar("Contactos", lista)
