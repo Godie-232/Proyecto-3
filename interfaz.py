@@ -133,7 +133,7 @@ def boton3():
     s:
     '''
     ventana3 = Tk()# crea una ventana
-    ventana3.title('ventana reto 2')
+    ventana3.title('ventana reto 3')
     ventana3.geometry("900x800")#tamaño de la ventana
     ventana3.resizable(True, True)#opcionde modifacar el tamaño
     panel3 = Frame(ventana3, bg='RoyalBlue3', width = 900, height = 800)
