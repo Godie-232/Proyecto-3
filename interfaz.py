@@ -113,6 +113,7 @@ def boton3():
     e:
     s:
     '''
+    print(leer('Contactos'))
     ventana3 = Tk()# crea una ventana
     ventana3.title('ventana reto 3')
     ventana3.geometry("900x800")#tamaño de la ventana
