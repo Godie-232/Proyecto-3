@@ -131,17 +131,17 @@ def boton3():
     inputCajaApellidos = Entry(panel3)#cuadro de texto donde se se escribe
     inputCajaApellidos.place(x = 250, y =125)
     cajaNombreNew = Label(panel3, text = 'Nombre nuevo:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
-    cajaNombreNew.place(x=80,y=100)
+    cajaNombreNew.place(x=80,y=150)
     inputCajaNombreNew = Entry(panel3)#cuadro de texto donde se se escribe
-    inputCajaNombreNew.place(x = 250, y =100)
+    inputCajaNombreNew.place(x = 250, y =150)
     cajaApellidosNew = Label(panel3, text = 'Apellidos nuevos:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
-    cajaApellidosNew.place(x=80,y=125)
+    cajaApellidosNew.place(x=80,y=175)
     inputCajaApellidosNew = Entry(panel3)#cuadro de texto donde se se escribe
-    inputCajaApellidosNew.place(x = 250, y =125)
+    inputCajaApellidosNew.place(x = 250, y =175)
     botonModificar = Button(panel3,text = 'modificar',width=30, height = 2, command = lambda: modificarContacto(inputCajaNombre,inputCajaApellidos,inputCajaNombreNew,inputCajaApellidosNew,leer('Contactos')))
-    botonModificar.place(x=100,y=200)
+    botonModificar.place(x=100,y=220)
     botonLimpiar = Button(panel3,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
-    botonLimpiar.place(x=300,y=200)
+    botonLimpiar.place(x=320,y=220)
 def boton4():
     '''
     funcion: eliminar contacto
@@ -172,14 +172,14 @@ def boton5():
     e:
     s:
     '''
-    '###########FUNCION BD A XML##############'
+    crearXML(leer('Contactos'))
 def boton6():
     '''
     funcion: extraer las frases celebres
     e:
     s:
     '''
-    '########FUNCION FRASES CELEBRES######'
+    extraerFrases()
 def boton7():
     '''
     funcion: chatear
@@ -200,7 +200,7 @@ def boton7():
     inputCantidadChats = Entry(panel6)
     inputCantidadChats.place(x = 250, y =150)
     #botones
-    botonChatear = Button(panel6,text = 'Chatear',width=30, height = 2, command = lambda: 'FUNCION CHATEAR')
+    botonChatear = Button(panel6,text = 'Chatear',width=30, height = 2, command = lambda: generarChat(leer('Contactos',leer('Frases'),[],inputCantidadChats.get())))
     botonChatear.place(x=100,y=200)
     botonLimpiar = Button(panel6,text = 'Limpiar',width=30, height = 2, command = lambda: 'FUNCION LIMPIAR')
     botonLimpiar.place(x=320,y=200)
@@ -210,7 +210,11 @@ def boton8():
     e:
     s:
     '''
-    'FUNCION REPORTES'
+    reporte1(leer('Contactos'))
+    reporte2(leer('Contactos'))
+    reporte3(leer('Contactos'))
+    reporte4(leer('Frases'))
+    
 def boton9():
     '''
     funcion: ayuda, abre el manual de usuario
@@ -225,6 +229,20 @@ def boton9():
     panel9.place(x=0, y=0)
     labelTitulo9 = Label(panel9, text = "Manual de usuario", bg ='snow', fg = 'gray10',font = ('',15))
     labelTitulo9.place(x=150,y=50)
+    cajaInfo = Label(panel9, text = '''MANUAL DE USUARIO!\n
+    Bienvenido al sisema de chats con freses celebres!\n
+    1)Presione el primer boton, luego inserte la cantidad de contactos deseadosa crear!\n
+    2)Para el seugndo boton, puede generar contactos de manera manual, debe instertar nombre completo, numeros y correos\n
+    3)Para modificar un contacto, presione el boton 3, debe insertar el nombre completo del contacto a modificar, luego llene la nueva informacion\n
+    4)Para eliminar un contacto presione el boton 4, inserte el nombre completo y termine de eliminar el contacto deseado\n
+    5)Con el boton 5 se exportara el archivo BD a un formato XML\n
+    6)Con el boton 6 se extraeran las frases celebres para poder chatear!\n
+    '7)Para chatear presione el boton 7, se generara el chat de inmediato!\n
+    8)Para generar los reportes, presione el boton 8\n
+    9)Con este boton se pide ayuda y se genera el manual de usuario!\n
+    10)Con este boton se genera toda la informacion acerca de el programa\n
+    11)cerrar el programa''', bg = 'snow', fg = 'gray10', font = ('',10))
+    cajaInfo.place(x=1,y=100)
 def boton10():
     '''
     funcion: mostrar acerda de
@@ -239,6 +257,11 @@ def boton10():
     panel10.place(x=0, y=0)
     labelTitulo10 = Label(panel10, text = 'Acerca de', bg ='snow', fg = 'gray10',font = ('',15))
     labelTitulo10.place(x=150,y=50)
+    cajaInfo = Label(panel10, text = '''Sistema de chats con frases celebres\n
+    Sistema: Python version 3.8.6\n
+    Fecha de creacion: 18/1/2021\n
+    Autores: Esteban Sibaja Alfaro y Diego Vega Mora''', bg = 'snow', fg = 'gray10', font = ('',11))
+    cajaInfo.place(x=10,y=100)
 def boton11():
     '''
     funcion: cerrar la ventana principal
