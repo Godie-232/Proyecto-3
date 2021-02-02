@@ -1,6 +1,6 @@
 #elaborado por Esteban Sibaja y Diego Vega
-#fecha de creacion: x/x/2020 8:34pm
-#ultima modificacion: x/x/2020 11:05pm
+#fecha de creacion: 11/1/2021 8:34pm
+#ultima modificacion: 1/2/2021 10:42pm
 #version: 3.8.6
 #importacion  de librerias
 import tkinter
@@ -44,6 +44,7 @@ def boton1():
     botonCrear = Button(panel1,text = 'Crear contactos',width=30, height = 2, command = lambda: validarLlenarBD(inputCaja1.get()))
     botonCrear.place(x=80,y=200)#crea los contactos
     botonLimpiar = Button(panel1,text = 'limpiar',width=30, height = 2, command = 'FUNCION LIMPIAR CONTACTOS').place(x=80,y=300)#limpia*?
+    return ''
 def boton2():
     '''
     funcion: insertar un contacto
@@ -107,6 +108,7 @@ def boton2():
     botonRegistrar.place(x=80,y=670)
     botonLimpiar = Button(panel2,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=300,y=670)
+    return ''
 def boton3():
     '''
     funcion: modificar contacto
@@ -143,12 +145,14 @@ def boton3():
     botonModificar.place(x=100,y=220)
     botonLimpiar = Button(panel3,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=320,y=220)
+    return ''
 def boton4():
     '''
     funcion: eliminar contacto
     e:
     s:
     '''
+    print(leer('Contactos'))
     ventana4 = Tk()# crea una ventana
     ventana4.title('ventana reto 4')
     ventana4.geometry("900x800")#tamaño de la ventana
@@ -165,8 +169,9 @@ def boton4():
     cajaApellidos.place(x=80,y=125)
     inputCajaApellidos = Entry(panel4)#cuadro de texto donde se se escribe
     inputCajaApellidos.place(x = 250, y =125)
-    botonEliminar = Button(panel4,text = 'Eliminar',width=30, height = 2, command = lambda: eliminarContacto(inputCajaNombre.get(),inputCajaApellidos.get()))
+    botonEliminar = Button(panel4,text = 'Eliminar',width=30, height = 2, command = lambda: eliminarContacto(inputCajaNombre.get(),inputCajaApellidos.get(),leer('Contactos')))
     botonEliminar.place(x=300,y=200)
+    return ''
 def boton5():
     '''
     funcion: exportar a xml
@@ -174,6 +179,7 @@ def boton5():
     s:
     '''
     crearXML(leer('Contactos'))
+    return ''
 def boton6():
     '''
     funcion: extraer las frases celebres
@@ -181,42 +187,59 @@ def boton6():
     s:
     '''
     extraerFrases()
+    return ''
 def boton7():
     '''
     funcion: chatear
     e:
     s:
     '''
-    ventana6 = Tk()# crea una ventana
-    ventana6.title('ventana reto 7')
-    ventana6.geometry("900x800")#tamaño de la ventana
-    ventana6.resizable(True, True)#opcionde modifacar el tamaño
-    panel6 = Frame(ventana6, bg='RoyalBlue3', width = 900, height = 800)
-    panel6.place(x=0, y=0)
-    labelTitulo6 = Label(panel6, text = "Chatear!", bg ='snow', fg = 'gray10',font = ('',15))
-    labelTitulo6.place(x=150,y=50)
+    ventana7 = Tk()# crea una ventana
+    ventana7.title('ventana reto 7')
+    ventana7.geometry("900x800")#tamaño de la ventana
+    ventana7.resizable(True, True)#opcionde modifacar el tamaño
+    panel7 = Frame(ventana7,bg='RoyalBlue3', width = 900, height = 800)
+    panel7.place(x=0, y=0)
+    labelTitulo7 = Label(panel7, text = "Chatear!", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo7.place(x=150,y=50)
     #cantidad de chats
-    cajaCantidadChats = Label(panel6, text = 'cantidad de contactos:', bg = 'snow', fg = 'gray10', font = ('',12))
+    cajaCantidadChats = Label(panel7, text = 'cantidad de chats:', bg = 'snow', fg = 'gray10', font = ('',12))
     cajaCantidadChats.place(x=80,y=150)
-    inputCantidadChats = Entry(panel6)
+    inputCantidadChats = Entry(panel7)
     inputCantidadChats.place(x = 250, y =150)
     #botones
-    botonChatear = Button(panel6,text = 'Chatear',width=30, height = 2, command = lambda: generarChat(leer('Contactos',leer('Frases'),[],inputCantidadChats.get())))
+    botonChatear = Button(panel7,text = 'Chatear',width=30, height = 2, command = lambda: generarChat(leer('Contactos'),leer('Frases'),[],inputCantidadChats.get()))
     botonChatear.place(x=100,y=200)
-    botonLimpiar = Button(panel6,text = 'Limpiar',width=30, height = 2, command = lambda: 'FUNCION LIMPIAR')
+    botonLimpiar = Button(panel7,text = 'Limpiar',width=30, height = 2, command = lambda: 'FUNCION LIMPIAR')
     botonLimpiar.place(x=320,y=200)
+    return ''
 def boton8():
     '''
     funcion: generar los reportes
     e:
     s:
     '''
-    reporte1(leer('Contactos'))
-    reporte2(leer('Contactos'))
-    reporte3(leer('Contactos'))
-    reporte4(leer('Frases'))
-    reporte5(listaInfo(leer('Registro')))
-    reporte6(leer('Registro'))
+    ventana8 = Tk()# crea una ventana
+    ventana8.title('ventana reto 8')
+    ventana8.geometry("900x800")#tamaño de la ventana
+    ventana8.resizable(True, True)#opcionde modifacar el tamaño
+    panel8 = Frame(ventana8, bg='RoyalBlue3', width = 900, height = 800)
+    panel8.place(x=0, y=0)
+    labelTitulo8 = Label(panel8, text = "Reportes del sistema", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo8.place(x=150,y=50)
+    botonReg1 = Button(panel8,text = 'Contactos del sistema',width=30, height = 2, command = lambda: reporte2(leer('Contactos')))
+    botonReg1.place(x=100,y=100)
+    botonReg2 = Button(panel8,text = 'Contactos que registran su número de celular',width=30, height = 2, command = lambda: reporte2(leer('Contactos')))
+    botonReg2.place(x=100,y=200)
+    botonReg3 = Button(panel8,text = 'La mayor cantidad de correos de un contacto',width=30, height = 2, command = lambda: reporte3(leer('Contactos')))
+    botonReg3.place(x=100,y=300)
+    botonReg4 = Button(panel8,text = 'Mostrar la frase célebre más larga y la más corta',width=30, height = 2, command = lambda: reporte4(leer('Frases')))
+    botonReg4.place(x=100,y=400)
+    botonReg5 = Button(panel8,text = 'Los contactos que han chateado',width=30, height = 2, command = lambda: reporte5(listaInfo(leer('Registro'))))
+    botonReg5.place(x=100,y=500)
+    botonReg6 = Button(panel8,text = 'El chat más largo generado',width=30, height = 2, command = lambda:reporte6(leer('Registro')))
+    botonReg6.place(x=100,y=600)
+    return ''
 def boton9():
     '''
     funcion: ayuda, abre el manual de usuario
@@ -224,7 +247,7 @@ def boton9():
     s:
     '''
     ventana9 = Tk()# crea una ventana
-    ventana9.title('ventana reto 8')
+    ventana9.title('ventana reto 9')
     ventana9.geometry("900x800")#tamaño de la ventana
     ventana9.resizable(True, True)#opcionde modifacar el tamaño
     panel9 = Frame(ventana9, bg='RoyalBlue3', width = 900, height = 800)
@@ -239,12 +262,13 @@ def boton9():
     4)Para eliminar un contacto presione el boton 4, inserte el nombre completo y termine de eliminar el contacto deseado\n
     5)Con el boton 5 se exportara el archivo BD a un formato XML\n
     6)Con el boton 6 se extraeran las frases celebres para poder chatear!\n
-    '7)Para chatear presione el boton 7, se generara el chat de inmediato!\n
+    7)Para chatear presione el boton 7, se generara el chat de inmediato!\n
     8)Para generar los reportes, presione el boton 8\n
     9)Con este boton se pide ayuda y se genera el manual de usuario!\n
     10)Con este boton se genera toda la informacion acerca de el programa\n
     11)cerrar el programa''', bg = 'snow', fg = 'gray10', font = ('',10))
     cajaInfo.place(x=1,y=100)
+    return ''
 def boton10():
     '''
     funcion: mostrar acerda de
@@ -252,7 +276,7 @@ def boton10():
     s:
     '''
     ventana10 = Tk()# crea una ventana
-    ventana10.title('ventana reto 7')
+    ventana10.title('ventana reto 10')
     ventana10.geometry("900x800")#tamaño de la ventana
     ventana10.resizable(True, True)#opcionde modifacar el tamaño
     panel10 = Frame(ventana10, bg='RoyalBlue3', width = 900, height = 800)
@@ -264,6 +288,7 @@ def boton10():
     Fecha de creacion: 18/1/2021\n
     Autores: Esteban Sibaja Alfaro y Diego Vega Mora''', bg = 'snow', fg = 'gray10', font = ('',11))
     cajaInfo.place(x=10,y=100)
+    return ''
 def boton11():
     '''
     funcion: cerrar la ventana principal
@@ -283,7 +308,7 @@ boton6 = Button(panel,text = '6)Extraer frases celebres',width=30, height = 2,co
 boton7 = Button(panel,text = '7)Chatear',width=30, height = 2,command = boton7).place(x=300,y=450)
 boton8 = Button(panel,text = '8)reportes',width=30, height = 2, command = boton8).place(x=300,y=500)
 boton9 = Button(panel,text = '9)Ayuda',width=30, height = 2,command = boton9).place(x=300,y=550)
-boton10 = Button(panel,text = '10Acerca de',width=30, height = 2,command = boton10).place(x=300,y=600)
+boton10 = Button(panel,text = '10)Acerca de',width=30, height = 2,command = boton10).place(x=300,y=600)
 boton11 = Button(panel,text = '11)Salir',width=30, height = 2,command = boton11).place(x=300,y=650)
 #llamada a la ventana principal
 ventana.mainloop()
