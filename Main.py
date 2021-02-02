@@ -1,6 +1,6 @@
 #Creado por: Esteban Sibaja Alfaro y Diego Vega Mora
 #Fecha de creacion: 11/1/2021 19:44
-#Ultima modificacion: XX/XX/2021 XX:XX
+#Ultima modificacion: 1/2/2021 10:43pm
 #Version 3.8.6
 
 #Importacion de librerias
@@ -69,6 +69,7 @@ class BD:
         S:
         """
         self.tipo = num
+        return''
     def numeroOO (self, num):
         """
         Le da el atributo al numero
@@ -84,6 +85,7 @@ class BD:
         S:
         """
         self.correo = lista
+        return''
 def randomA ():
     """
     retorna el apellido completo de forma aleatoria
@@ -303,7 +305,7 @@ def generarChat(listaObjetos, listaChat, ulam, num):
     S: 
     """
     i = 1
-    while i < num + 1:
+    while i < eval(num) + 1:
         file = open("Chat " + str(i) + '.txt', "w")
         k = 0
         contactos = sacarContactos(listaObjetos)
