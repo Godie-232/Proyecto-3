@@ -188,11 +188,7 @@ def modificarContacto(nombre, apellidos, nombreN, apellidosN, lista):
     """
     global listaBD
     for i in lista:
-<<<<<<< HEAD
         if str(nombre).upper() == i[0].upper() and str(apellidos).upper() == i[1].upper():
-=======
-        if str(nombre) == i[0] and str(apellidos) == i[1]:
->>>>>>> 29cb996edd4044bdfaa6e4dba0776683dc1cdce5
             i[0] = nombreN
             i[1] = apellidosN
             guardar("Contactos", lista)
