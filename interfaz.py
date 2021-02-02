@@ -107,28 +107,9 @@ def boton2():
     botonRegistrar.place(x=80,y=670)
     botonLimpiar = Button(panel2,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=300,y=670)
-def ModificarEliminar():
-    '''
-    funcion: da la opcion de eliminar o modificar un contacto
-    e:
-    s:
-    '''
-    '####AQUI SE DEBE CORRER LA FUNCION DE BUSQUEDA####'
-    ventanaMod = Tk()# crea una ventana
-    ventanaMod.title('ventana modificar/eliminar')
-    ventanaMod.geometry("900x800")#tamaño de la ventana
-    ventanaMod.resizable(True, True)#opcionde modifacar el tamaño
-    panelMod = Frame(ventanaMod, bg='RoyalBlue3', width = 900, height = 800)
-    panelMod.place(x=0, y=0)
-    labelTituloMod = Label(panelMod, text = "Modificar/Eliminar un contacto", bg ='snow', fg = 'gray10',font = ('',15))
-    labelTituloMod.place(x=150,y=50)
-    botonModificar = Button(panelMod, text = 'Modificar',width=30, height = 2, command = lambda: 'FUNCION MODIFICAR')
-    botonModificar.place(x=100,y=100)
-    botonEliminar = Button(panelMod, text = 'Eliminar',width=30, height = 2, command = lambda: 'FUNCION ELIMINAR')
-    botonEliminar.place(x=300,y=100)
 def boton3():
     '''
-    funcion: modificar y eliminar contacto
+    funcion: modificar contacto
     e:
     s:
     '''
@@ -138,7 +119,7 @@ def boton3():
     ventana3.resizable(True, True)#opcionde modifacar el tamaño
     panel3 = Frame(ventana3, bg='RoyalBlue3', width = 900, height = 800)
     panel3.place(x=0, y=0)
-    labelTitulo3 = Label(panel3, text = "Buscar el contacto", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo3 = Label(panel3, text = "Modificar contacto", bg ='snow', fg = 'gray10',font = ('',15))
     labelTitulo3.place(x=150,y=50)
     #nombre y apellidos
     cajaNombre = Label(panel3, text = 'Nombre:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
@@ -149,30 +130,57 @@ def boton3():
     cajaApellidos.place(x=80,y=125)
     inputCajaApellidos = Entry(panel3)#cuadro de texto donde se se escribe
     inputCajaApellidos.place(x = 250, y =125)
-    #numero
-    cajaNumero = Label(panel3, text = 'inserte el numero:', bg = 'snow', fg = 'gray10', font = ('',12))
-    cajaNumero.place(x=80,y=150)
-    inputCajaNumero = Entry(panel3)
-    inputCajaNumero.place(x = 250, y =150)
-    botonBuscar = Button(panel3,text = 'buscar',width=30, height = 2, command = lambda: ModificarEliminar())
-    botonBuscar.place(x=100,y=200)
+    cajaNombreNew = Label(panel3, text = 'Nombre nuevo:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaNombreNew.place(x=80,y=100)
+    inputCajaNombreNew = Entry(panel3)#cuadro de texto donde se se escribe
+    inputCajaNombreNew.place(x = 250, y =100)
+    cajaApellidosNew = Label(panel3, text = 'Apellidos nuevos:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaApellidosNew.place(x=80,y=125)
+    inputCajaApellidosNew = Entry(panel3)#cuadro de texto donde se se escribe
+    inputCajaApellidosNew.place(x = 250, y =125)
+    botonModificar = Button(panel3,text = 'modificar',width=30, height = 2, command = lambda: modificarContacto(inputCajaNombre,inputCajaApellidos,inputCajaNombreNew,inputCajaApellidosNew,leer('Contactos')))
+    botonModificar.place(x=100,y=200)
     botonLimpiar = Button(panel3,text = 'Limpiar',width=30, height = 2, command = lambda: 'ad')
     botonLimpiar.place(x=300,y=200)
 def boton4():
+    '''
+    funcion: eliminar contacto
+    e:
+    s:
+    '''
+    ventana4 = Tk()# crea una ventana
+    ventana4.title('ventana reto 4')
+    ventana4.geometry("900x800")#tamaño de la ventana
+    ventana4.resizable(True, True)#opcionde modifacar el tamaño
+    panel4 = Frame(ventana4, bg='RoyalBlue3', width = 900, height = 800)
+    panel4.place(x=0, y=0)
+    labelTitulo4 = Label(panel4, text = "eliminar contacto", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo4.place(x=150,y=50)
+    cajaNombre = Label(panel4, text = 'Nombre:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaNombre.place(x=80,y=100)
+    inputCajaNombre = Entry(panel4)#cuadro de texto donde se se escribe
+    inputCajaNombre.place(x = 250, y =100)
+    cajaApellidos = Label(panel4, text = 'Apellidos:', bg = 'snow', fg = 'gray10', font = ('',12))#caja de informacion
+    cajaApellidos.place(x=80,y=125)
+    inputCajaApellidos = Entry(panel4)#cuadro de texto donde se se escribe
+    inputCajaApellidos.place(x = 250, y =125)
+    botonEliminar = Button(panel4,text = 'Eliminar',width=30, height = 2, command = lambda: eliminarContacto(inputCajaNombre,inputCajaApellidos))
+    botonEliminar.place(x=300,y=200)
+def boton5():
     '''
     funcion: exportar a xml
     e:
     s:
     '''
     '###########FUNCION BD A XML##############'
-def boton5():
+def boton6():
     '''
     funcion: extraer las frases celebres
     e:
     s:
     '''
     '########FUNCION FRASES CELEBRES######'
-def boton6():
+def boton7():
     '''
     funcion: chatear
     e:
@@ -196,42 +204,42 @@ def boton6():
     botonChatear.place(x=100,y=200)
     botonLimpiar = Button(panel6,text = 'Limpiar',width=30, height = 2, command = lambda: 'FUNCION LIMPIAR')
     botonLimpiar.place(x=320,y=200)
-def boton7():
+def boton8():
     '''
     funcion: generar los reportes
     e:
     s:
     '''
     'FUNCION REPORTES'
-def boton8():
+def boton9():
     '''
     funcion: ayuda, abre el manual de usuario
     e:
     s:
     '''
-    ventana8 = Tk()# crea una ventana
-    ventana8.title('ventana reto 8')
-    ventana8.geometry("900x800")#tamaño de la ventana
-    ventana8.resizable(True, True)#opcionde modifacar el tamaño
-    panel8 = Frame(ventana8, bg='RoyalBlue3', width = 900, height = 800)
-    panel8.place(x=0, y=0)
-    labelTitulo8 = Label(panel8, text = "Manual de usuario", bg ='snow', fg = 'gray10',font = ('',15))
-    labelTitulo8.place(x=150,y=50)
-def boton9():
+    ventana9 = Tk()# crea una ventana
+    ventana9.title('ventana reto 8')
+    ventana9.geometry("900x800")#tamaño de la ventana
+    ventana9.resizable(True, True)#opcionde modifacar el tamaño
+    panel9 = Frame(ventana9, bg='RoyalBlue3', width = 900, height = 800)
+    panel9.place(x=0, y=0)
+    labelTitulo9 = Label(panel9, text = "Manual de usuario", bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo9.place(x=150,y=50)
+def boton10():
     '''
     funcion: mostrar acerda de
     e:
     s:
     '''
-    ventana9 = Tk()# crea una ventana
-    ventana9.title('ventana reto 7')
-    ventana9.geometry("900x800")#tamaño de la ventana
-    ventana9.resizable(True, True)#opcionde modifacar el tamaño
-    panel9 = Frame(ventana9, bg='RoyalBlue3', width = 900, height = 800)
-    panel9.place(x=0, y=0)
-    labelTitulo9 = Label(panel9, text = 'Acerca de', bg ='snow', fg = 'gray10',font = ('',15))
-    labelTitulo9.place(x=150,y=50)
-def boto10():
+    ventana10 = Tk()# crea una ventana
+    ventana10.title('ventana reto 7')
+    ventana10.geometry("900x800")#tamaño de la ventana
+    ventana10.resizable(True, True)#opcionde modifacar el tamaño
+    panel10 = Frame(ventana10, bg='RoyalBlue3', width = 900, height = 800)
+    panel10.place(x=0, y=0)
+    labelTitulo10 = Label(panel10, text = 'Acerca de', bg ='snow', fg = 'gray10',font = ('',15))
+    labelTitulo10.place(x=150,y=50)
+def boto11():
     '''
     funcion: cerrar la ventana principal
     e:
@@ -241,15 +249,16 @@ def boto10():
     print('Gracias por usar el sistema de Chat!')
     return ''
 #BOTONES DEL MENU PRINCIPAL
-boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = boton1).place(x=350,y=150)
-boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = boton2).place(x=350,y=200)
-boton3 = Button(panel,text = '3)Modificar/eliminar contactos',width=30, height = 2,command = boton3).place(x=350,y=250)
-boton4 = Button(panel,text = '4)Exportar BD a XML',width=30, height = 2,command = boton4).place(x=350,y=300)
-boton5 = Button(panel,text = '5)Extraer frases celebres',width=30, height = 2,command = boton5).place(x=350,y=350)
-boton6 = Button(panel,text = '6)Chatear',width=30, height = 2,command = boton6).place(x=350,y=400)
-boton7 = Button(panel,text = '7)reportes',width=30, height = 2, command = boton7).place(x=350,y=450)
-boton8 = Button(panel,text = '8)Ayuda',width=30, height = 2,command = 'boton8').place(x=350,y=500)
-boton9 = Button(panel,text = '9)Acerca de',width=30, height = 2,command = 'boton9').place(x=350,y=550)
-boton10 = Button(panel,text = '10)Salir',width=30, height = 2,command = 'boton10').place(x=350,y=600)
+boton1 = Button(panel,text = '1)Llenar BD',width=30, height = 2, command = boton1).place(x=300,y=150)
+boton2 = Button(panel,text = '2)Insertar contactos',width=30, height = 2, command = boton2).place(x=300,y=200)
+boton3 = Button(panel,text = '3)Modificar contactos',width=30, height = 2,command = boton3).place(x=300,y=250)
+boton4 = Button(panel,text = '4)Eliminar contactos',width=30, height = 2,command = boton4).place(x=300,y=300)
+boton5 = Button(panel,text = '5)Exportar BD a XML',width=30, height = 2,command = boton5).place(x=300,y=350)
+boton6 = Button(panel,text = '6)Extraer frases celebres',width=30, height = 2,command = boton6).place(x=300,y=400)
+boton7 = Button(panel,text = '7)Chatear',width=30, height = 2,command = boton7).place(x=300,y=450)
+boton8 = Button(panel,text = '8)reportes',width=30, height = 2, command = boton8).place(x=300,y=500)
+boton9 = Button(panel,text = '9)Ayuda',width=30, height = 2,command = boton9).place(x=300,y=550)
+boton10 = Button(panel,text = '10Acerca de',width=30, height = 2,command = boton10).place(x=300,y=600)
+boton11 = Button(panel,text = '11)Salir',width=30, height = 2,command = boton11).place(x=300,y=650)
 #llamada a la ventana principal
 ventana.mainloop()
