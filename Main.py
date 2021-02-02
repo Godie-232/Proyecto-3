@@ -188,26 +188,25 @@ def modificarContacto(nombre, apellidos, nombreN, apellidosN, lista):
     """
     global listaBD
     for i in lista:
-        if nombre.upper() == i[0].upper() and apellidos.upper() == i[1].upper():
+        if str(nombre).upper() == i[0].upper() and str(apellidos).upper() == i[1].upper():
             i[0] = nombreN
             i[1] = apellidosN
-            guardar("Contactos", listaBD)
-            return listaBD
+            guardar("Contactos", lista)
+            return lista
     print("El contacto no existe")
     return ""
-def eliminarContacto(nombre, apellido):
+def eliminarContacto(nombre, apellido, lista):
     """
     Dado un nombre y un apellido elimina dicho contacto de la lista
     E: 2 strings
     S: una lista
     """
-    global listaBD
     listaN = []
-    for i in listaBD:
+    for i in lista:
         if i[0].upper() != nombre.upper() and i[1].upper() != apellido.upper():
             listaN += [i]
-    listaBD = listaN
-    guardar("Contactos", listaBD)
+    lista = listaN
+    guardar("Contactos", lista)
     return listaN
 def crearXML(lista):
     """
