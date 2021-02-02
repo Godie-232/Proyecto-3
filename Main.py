@@ -153,19 +153,16 @@ def validarLlenarBD(num):
     E: un numero
     S: una lista
     """
-    if isinstance(num, int):
-        if num > 0:
-            if num < 500:
-                return llenarBD(num)
-            else:
-                print("Ingrese un numero menor que 500")
-                return ""
+    if eval(num) > 0:
+        if eval(num) < 500:
+            return llenarBD(eval(num))
         else:
-            print("Ingrese un numero mayor a 0")
+            print("Ingrese un numero menor que 500")
             return ""
     else:
-        print("Ingrese un numero entero positivo")
+        print("Ingrese un numero mayor a 0")
         return ""
+ 
 def insertarContacto(nombre, apellidos, tipo, numero, correo1, correo2, correo3, num1, num2, num3, lista):
     """
     Dado unos valores crea los objetos y los añade a la lista global luego la guarda
