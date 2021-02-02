@@ -175,9 +175,9 @@ def insertarContacto(nombre, apellidos, tipo, numero, correo1, correo2, correo3,
     contactos.apellidosOO(apellidos)
     contactos.tipoOO(tipo)
     contactos.numeroOO(numero)
-    lista = [(num1, correo1), (num2, correo2), (num3, correo3)]
+    lista = [(eval(num1), correo1), (eval(num2), correo2), (eval(num3), correo3)]
     contactos.correoOO(lista)
-    listaBD += [[nombre, apellidos, tipo, numero, lista]]
+    listaBD += [[nombre, apellidos, eval(tipo), eval(numero), lista]]
     guardar("Contactos", listaBD)
     return listaBD
 def modificarContacto(nombre, apellidos, nombreN, apellidosN, lista):
