@@ -239,7 +239,7 @@ def boton10():
     panel10.place(x=0, y=0)
     labelTitulo10 = Label(panel10, text = 'Acerca de', bg ='snow', fg = 'gray10',font = ('',15))
     labelTitulo10.place(x=150,y=50)
-def boto11():
+def boton11():
     '''
     funcion: cerrar la ventana principal
     e:
