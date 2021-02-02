@@ -14,6 +14,7 @@ import xml.etree.ElementTree as xml
 # -*- coding: utf-8 -*-
 listaFrases = []
 listaBD = []
+listaContactos = [      ]
 def guardar (archivo, lista):
     """
     guarda una lista en un archivo
@@ -165,7 +166,7 @@ def validarLlenarBD(num):
     else:
         print("Ingrese un numero entero positivo")
         return ""
-def insertarContacto(nombre,apellidos,tipo,numero,num1,correo1,num2,num3,correo2,correo3):
+def insertarContacto(nombre, apellidos, tipo, numero, correo1, correo2, correo3, num1, num2, num3, lista):
     """
     Dado unos valores crea los objetos y los añade a la lista global luego la guarda
     E: 4 strings y 5 numeros
@@ -182,14 +183,14 @@ def insertarContacto(nombre,apellidos,tipo,numero,num1,correo1,num2,num3,correo2
     listaBD += [[nombre, apellidos, tipo, numero, lista]]
     guardar("Contactos", listaBD)
     return listaBD
-def modificarContacto(nombre, apellidos, nombreN, apellidosN):
+def modificarContacto(nombre, apellidos, nombreN, apellidosN, lista):
     """
     Dado el nombre de un contacto y su apellido los cambia por los nombre ingresados
     E: 4 strings
     S: una lista
     """
     global listaBD
-    for i in listaBD:
+    for i in lista:
         if nombre.upper() == i[0].upper() and apellidos.upper() == i[1].upper():
             i[0] = nombreN
             i[1] = apellidosN
@@ -309,6 +310,7 @@ def sacarContactos(lista):
     listaF = [listaF[0][0] + " " + listaF[0][1],listaF[1][0] + " " + listaF[1][1]]
     return listaF
 def generarChat(listaObjetos, listaChat, ulam, num):
+    global listaContactos
     """
     crea archivos con los chats 
     E: 3 listas y un numero
@@ -319,14 +321,17 @@ def generarChat(listaObjetos, listaChat, ulam, num):
         file = open("Chat " + str(i) + '.txt', "w")
         k = 0
         contactos = sacarContactos(listaObjetos)
-        ulam = getUlam(random.randint(0, 34))
-        file.write(str(ulam) + "\n" + "Extraido de: https://amazonia-teamfactory.com/blog/las-50-mejores-frases-de-motivacion-en-el-trabajo/" + "\n")
-        for j in ulam:
-            file.write(str(datetime.datetime.today())[11:19] + "    " + "De: " + contactos[k] + ": " + listaChat[j-1][4:] + "\n")
-            k += 1
-            if k > 1:
-                k = 0
-        i += 1
+        if [contactos] not in listaContactos:
+            ulam = getUlam(random.randint(0, 34))
+            file.write(str(ulam) + "\n" + "Extraido de: https://amazonia-teamfactory.com/blog/las-50-mejores-frases-de-motivacion-en-el-trabajo/" + "\n")
+            for j in ulam:
+                file.write(str(datetime.datetime.today())[11:19] + "    " + "De: " + contactos[k] + ": " + listaChat[j-1][4:] + "\n")
+                k += 1
+                if k > 1:
+                    k = 0
+            listaContactos += [contactos]
+            i += 1
+    guardar("Registro", listaContactos)
     return ""
 def reporte1 (lista):
     """
@@ -411,3 +416,30 @@ def reporte4(lista):
     file.write("Frase mas larga ? Frase mas corta \n")
     file.write(larga + " " + " ? " + corta + "\n")
     return ""
+def getInfo(lista1, lista2):
+    """
+    Dada una lista con 2 contactos retorna la informacion completa del contacto
+    E: 2 listas
+    S: una lista
+    """
+    lista = []
+    for i in lista2:
+        if i[0] + " " + i[1] == lista1[0]:
+            lista += [[i[0] + " " + i[1], i[3]]]
+    for i in lista2:
+        if i[0] + " " + i[1] == lista1[1]:
+            lista += [[i[0] + " " + i[1], i[3]]]
+    return lista
+def listaInfo(lista):
+    """
+    Dada la lista retorna la informacion de todos los contactos que chatearon
+    E: una lista
+    S: una lista
+    """
+    listaN = []
+    for i in lista:
+        listaN += [getInfo(i, leer("Contactos"))]
+    return listaN
+print(listaInfo(leer("Registro")))
+#def reporte5(lista):
+    
