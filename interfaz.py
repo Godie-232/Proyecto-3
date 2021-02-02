@@ -41,8 +41,8 @@ def boton1():
     caja1.place(x=80,y=150)
     inputCaja1 = Entry(panel1)#cuadro de texto donde se se escribe
     inputCaja1.place(x = 300, y =150)
-    botonCrear = Button(panel1,text = 'Crear contactos',width=30, height = 2, command = lambda: validarLlenarBD(inputCaja1.get()))#crea los contactos
-    botonCrear.place(x=80,y=200)
+    botonCrear = Button(panel1,text = 'Crear contactos',width=30, height = 2, command = lambda: validarLlenarBD(inputCaja1.get()))
+    botonCrear.place(x=80,y=200)#crea los contactos
     botonLimpiar = Button(panel1,text = 'limpiar',width=30, height = 2, command = 'FUNCION LIMPIAR CONTACTOS').place(x=80,y=300)#limpia*?
 def boton2():
     '''
@@ -214,7 +214,8 @@ def boton8():
     reporte2(leer('Contactos'))
     reporte3(leer('Contactos'))
     reporte4(leer('Frases'))
-    
+    reporte5(listaInfo(leer('Registro')))
+    reporte6(leer('Registro'))
 def boton9():
     '''
     funcion: ayuda, abre el manual de usuario
