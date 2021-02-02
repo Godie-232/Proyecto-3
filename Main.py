@@ -287,17 +287,6 @@ def getUlam(num):
     else:
         print("Ingrese un numero mayor a cero")
         return ""
-def acercaDe():
-    """
-    Imprime la informacion acerca del programa, su version, cuando se creo y quienes lo crearon
-    """
-    print()
-    print()
-    print("Sistema: Python version 3.8.6          ")
-    print("Fecha de creacion: 18/1/2021          ")
-    print("Creado por: Esteban Sibaja y Diego Vega Mora          ")
-    print()
-    return ""
 def sacarContactos(lista):
     """
     Dado una lista saca 2 personas diferentes
