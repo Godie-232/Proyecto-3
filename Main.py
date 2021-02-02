@@ -426,7 +426,7 @@ def getInfo(lista1, lista2):
     for i in lista2:
         if i[0] + " " + i[1] == lista1[0]:
             lista += [[i[0] + " " + i[1], i[3]]]
-    for i in lista2:
+    for i in lista2: 
         if i[0] + " " + i[1] == lista1[1]:
             lista += [[i[0] + " " + i[1], i[3]]]
     return lista
@@ -440,6 +440,41 @@ def listaInfo(lista):
     for i in lista:
         listaN += [getInfo(i, leer("Contactos"))]
     return listaN
-print(listaInfo(leer("Registro")))
-#def reporte5(lista):
-    
+def reporte5(lista):
+    """
+    Da un reporte con las personas que hablaron y en que chat
+    E: una lista
+    S: 
+    """
+    file = open("Reporte Chats.csv", "w")    
+    file.write("Contacto 1, Telefono 1, Contacto 2, Telefono 2, Chat \n")
+    k = 1
+    for i in lista:
+        file.write(i[0][0] + " " + " , " + str(i[0][1]) + " " + " , " +  i[1][0] + " " + " , " +  str(i[1][1]) + " " + " , " + str(k) + "\n")
+        k += 1
+    return ""
+def reporte6Aux(lista):
+    """
+    retorna el numero de chat con mas largo
+    E: una lista
+    S: un numero
+    """
+    k = 1
+    listaM = [0, 0]
+    for i in lista:
+        chat = open("Chat " + str(k) + ".txt", "r")
+        cant = len(chat.read())
+        if cant >=  listaM[0]:
+            listaM[0] = cant
+            listaM[1] = k
+        k += 1
+    return listaM[1]
+def reporte6(lista):
+    """
+    Imprime el chat mas largo
+    E: una lista
+    S:
+    """
+    chat = open("Chat " + str(reporte6Aux(lista)) + ".txt", "r")
+    print(chat.read())
+    return ""
