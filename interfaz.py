@@ -122,7 +122,7 @@ def ModificarEliminar():
     panelMod.place(x=0, y=0)
     labelTituloMod = Label(panelMod, text = "Modificar/Eliminar un contacto", bg ='snow', fg = 'gray10',font = ('',15))
     labelTituloMod.place(x=150,y=50)
-    botonModificar = Button(panelMod, text = 'Modificar',width=30, height = 2, command = lambda: 'FUNCION MODIFCAR')
+    botonModificar = Button(panelMod, text = 'Modificar',width=30, height = 2, command = lambda: 'FUNCION MODIFICAR')
     botonModificar.place(x=100,y=100)
     botonEliminar = Button(panelMod, text = 'Eliminar',width=30, height = 2, command = lambda: 'FUNCION ELIMINAR')
     botonEliminar.place(x=300,y=100)
